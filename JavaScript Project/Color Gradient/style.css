@@ -1,0 +1,78 @@
+/* style.css */
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #89f7fe, #66a6ff); /* Dynamic Gradient Background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* Section Styling with Glassmorphism */
+section {
+    text-align: center;
+    padding: 40px;
+    max-width: 600px;
+    background: transparent; /* Increased transparency */
+    border-radius: 16px; /* More rounded corners for a modern look */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border for emphasis */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Enhanced depth effect */
+    backdrop-filter: blur(20px); /* Stronger blur for a glassy look */
+    -webkit-backdrop-filter: blur(20px); /* Safari support */
+    color: #fff;
+    margin: 20px; /* Add some spacing */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+/* Hover Effect for Section */
+section:hover {
+    background: transparent; /* Slightly brighter on hover */
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+    transform: translateY(-5px); /* Subtle lift effect */
+}
+
+/* Buttons Styling */
+button {
+    padding: 12px 28px;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    background: linear-gradient(90deg, #ff6a00, #ee0979); /* Button Gradient */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for buttons */
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Heading */
+h2 {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #fff;
+}
+
+/* Code Section */
+.copyCode {
+    margin-top: 20px;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #000;
+    text-align: left;
+    word-wrap: break-word;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}

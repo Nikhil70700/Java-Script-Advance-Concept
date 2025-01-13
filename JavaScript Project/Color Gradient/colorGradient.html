@@ -4,8 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Gradient</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <section>
+        <div>
+            <button id="myButton">#051937</button>
+            <button id="myButton2">#008793</button>
+        </div>
+        <h2>Click to Copy your Code</h2>
+        <div class="copyCode">
+            background-image: linear-gradient(to right, rgb(91,145,229), rgb(152,63,198));
+        </div>
+    </section>
+
+    <script>
+        let btn1 = document.getElementById("myButton");
+        let btn2 = document.getElementById("myButton2");
+        let copyDiv=document.querySelector(".copyCode")
+
+        let rgb1="#000";
+        let rgb2="#fff";
+
+        // Generate a random hex color
+        const hexValues = () => {
+            let myHexValues = "0123456789ABCDEF";
+            let colors = '#';
+            for (let i = 0; i < 6; i++) { // Ensure exactly 6 characters are added
+                colors += myHexValues[Math.floor(Math.random() * 16)];
+            }
+            return colors;
+        };
+        
+        // Handle Button 1 Click
+        const handleButton1 = () => {
+            rgb1 = hexValues();
+            console.log( rgb1);
+            btn1.innerText=rgb1;
+            document.body.style.backgroundImage=`linear-gradient(to right, ${rgb1}, ${rgb2}`;
+            copyDiv.innerHTML=`background-image: linear-gradient(to right, ${rgb1}, ${rgb2})`;
+        };
+
+        
+
+        // Handle Button 2 Click
+        const handleButton2 = () => {
+            rgb2 = hexValues();
+            console.log(rgb2);
+            btn2.innerText=rgb2;
+            document.body.style.backgroundImage=`linear-gradient(to right, ${rgb1}, ${rgb2})`;
+            copyDiv.innerHTML=`background-image: linear-gradient(to right, ${rgb1}, ${rgb2})`;
+        };
+
+
+    // Custom Alert
+        const showSlidingAlert = (message) => {
+    // Create a new div element for the alert
+    const alertDiv = document.createElement("div");
+
+    // Style the div using inline styles
+    alertDiv.style.position = "fixed";
+    alertDiv.style.top = "20px";
+    alertDiv.style.right = "-300px"; // Start off-screen
+    alertDiv.style.padding = "10px 20px";
+    alertDiv.style.backgroundColor ="transparent";
+    alertDiv.style.color = "#E55C29";
+    alertDiv.style.borderRadius = "8px";
+    alertDiv.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)";
+    alertDiv.style.fontSize = "16px";
+    alertDiv.style.fontWeight = "bold";
+    alertDiv.style.zIndex = "1000";
+    alertDiv.style.transition = "right 2s ease"; // Add smooth transition
+
+    // Set the alert message
+    alertDiv.innerText = message;
+
+    // Append the alert to the body
+    document.body.appendChild(alertDiv);
+
+    // Slide the alert into view
+    setTimeout(() => {
+        alertDiv.style.right = "20px"; // Slide into view
+    }, 100);
+
+    // Remove the alert after 3 seconds
+    setTimeout(() => {
+        alertDiv.style.right = "-300px"; // Slide out of view
+        setTimeout(() => {
+            document.body.removeChild(alertDiv); // Remove element
+        }, 500); // Wait for the slide-out animation to finish
+    }, 3000);
+};
+
+// Example usage
+copyDiv.addEventListener("click", () => {
+    navigator.clipboard.writeText(copyDiv.innerHTML)
+        .then(() => {
+            showSlidingAlert("Copied to clipboard!");
+        })
+        .catch(err => {
+            showSlidingAlert("Failed to copy!");
+        });
+});
+
+
+        // Attach event listeners to the buttons
+        btn1.addEventListener("click", handleButton1);
+        btn2.addEventListener("click", handleButton2);
+        copyDiv.addEventListener("click",()=>{
+        navigator.clipboard.writeText(copyDiv.innerHTML)
+        .then(()=>{
+            //Show success alert
+            showDynamicAlert("Copied to clipboard");
+        })
+        
+        })
+    </script>
     
 </body>
 </html>
