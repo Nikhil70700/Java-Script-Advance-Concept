@@ -24,8 +24,8 @@
         let btn2 = document.getElementById("myButton2");
         let copyDiv=document.querySelector(".copyCode")
 
-        let rgb1="#000";
-        let rgb2="#fff";
+        let rgb1="#89f7fe";
+        let rgb2=" #66a6ff";
 
         // Generate a random hex color
         const hexValues = () => {
@@ -68,8 +68,8 @@
     alertDiv.style.top = "20px";
     alertDiv.style.right = "-300px"; // Start off-screen
     alertDiv.style.padding = "10px 20px";
-    alertDiv.style.backgroundColor ="transparent";
-    alertDiv.style.color = "#E55C29";
+    alertDiv.style.backgroundColor ="#2c488a";
+    alertDiv.style.color = "#ffff";
     alertDiv.style.borderRadius = "8px";
     alertDiv.style.boxShadow = "0 4px 10px rgba(0, 0, 0, 0.2)";
     alertDiv.style.fontSize = "16px";
@@ -94,14 +94,14 @@
         setTimeout(() => {
             document.body.removeChild(alertDiv); // Remove element
         }, 500); // Wait for the slide-out animation to finish
-    }, 3000);
+    }, 2000);
 };
 
 // Example usage
 copyDiv.addEventListener("click", () => {
     navigator.clipboard.writeText(copyDiv.innerHTML)
         .then(() => {
-            showSlidingAlert("Copied to clipboard!");
+            showSlidingAlert("Copied to clipboard !");
         })
         .catch(err => {
             showSlidingAlert("Failed to copy!");
@@ -112,14 +112,7 @@ copyDiv.addEventListener("click", () => {
         // Attach event listeners to the buttons
         btn1.addEventListener("click", handleButton1);
         btn2.addEventListener("click", handleButton2);
-        copyDiv.addEventListener("click",()=>{
-        navigator.clipboard.writeText(copyDiv.innerHTML)
-        .then(()=>{
-            //Show success alert
-            showDynamicAlert("Copied to clipboard");
-        })
-        
-        })
+       
     </script>
     
 </body>
