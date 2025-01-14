@@ -8,12 +8,37 @@
 </head>
 <body>
     <h1>Todo List</h1>
-    <br/>
     <form>
         <div>
             <input type="text" id="inputValue">
-            <button class="btn">Add TOdo</button>
+            <button class="btn">Add Todo</button>
         </div>
+        <section class="todo-List-elem"></section>
     </form>
+    
+
+
+
+    <script>
+        const mainTodoElem=document.querySelector(".todo-List-elem");
+        const inputValue=document.getElementById("inputValue");
+
+
+        const addTodoList=(event)=>{
+            event.preventDefault();
+            const divElem=document.createElement('div');
+            divElem.classList.add("main-todo-div");
+            divElem.innerHTML=`<li>${inputValue.value}</li> <button class="deleteBtn">Delete</button>  `;
+            mainTodoElem.append(divElem);
+
+        };
+
+        document.querySelector(".btn").addEventListener("click",(event)=>{
+            addTodoList(event);
+
+        });
+    </script>
+
+
 </body>
 </html>
