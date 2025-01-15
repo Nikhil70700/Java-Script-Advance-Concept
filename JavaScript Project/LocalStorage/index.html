@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>localStorage Practice</title>
+</head>
+<body>
+    <h2>My Favorite Color</h2>
+    
+    <!-- Input for the color -->
+    <input type="text" id="colorInput" placeholder="Enter your favorite color">
+    
+    <!-- Button to save the color -->
+    <button onclick="saveColor()">Save Color</button>
+    
+    <!-- Where we'll display the saved color -->
+    <p>Your saved favorite color is: <span id="savedColor">None yet</span></p>
+
+    <script>
+        // First, let's check if there's already a color saved when the page loads
+        function checkSavedColor() {
+            // Try to get the color from localStorage
+            const savedColor = localStorage.getItem("favoriteColor");
+            
+            // If we found a saved color, display it
+            if (savedColor) {
+                document.getElementById("savedColor").textContent = savedColor;
+            }
+        }
+
+        // Function to save a new color
+        function saveColor() {
+            // Get what the user typed in the input
+            const colorInput = document.getElementById("colorInput");
+            const newColor = colorInput.value;
+            
+            // Save it to localStorage
+            localStorage.setItem("favoriteColor", newColor);
+            
+            // Show it on the page
+            document.getElementById("savedColor").textContent = newColor;
+            
+            // Clear the input box
+            colorInput.value = "";
+        }
+
+        // Run the check when the page loads
+        checkSavedColor();
+    </script>
+</body>
+</html>
