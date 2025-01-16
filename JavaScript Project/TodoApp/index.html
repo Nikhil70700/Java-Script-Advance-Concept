@@ -25,9 +25,14 @@
         const mainTodoElem = document.querySelector(".todo-List-elem");
         const inputValue = document.getElementById("inputValue");
 
+        const deleteTodo = document.getElementById("deleteBtn");
         const getTodoListFromLocal = () => {
-            return JSON.parse(localStorage.getItem("myTodosList"));  //JSON.parse(conver String into Array);
+            return JSON.parse(localStorage.getItem("myTodosList"));  //JSON.parse(convert String into Array);
         };
+        const addTOdoListLocalStorage = (localTodoLists) => {
+            return localStorage.setItem("myTodosList", JSON.stringify(localTodoLists))
+        }
+
         localTodoLists = getTodoListFromLocal() || []; // if local storage is empty then it will return empty array[]
 
 
@@ -69,28 +74,10 @@
 
         };
 
-        //Delete button
 
-        // Add this function to handle deletion
-const deleteTodo = (event) => {
-    // Check if the clicked element is a delete button
-    if (event.target.classList.contains('deleteBtn')) {
-        // Get the parent div element
-        const todoDiv = event.target.parentElement;
-        // Get the todo text from the li element
-        const todoText = todoDiv.querySelector('li').textContent;
-        
-        // Remove from local storage
-        localTodoLists = localTodoLists.filter(todo => todo !== todoText);
-        localStorage.setItem("myTodosList", JSON.stringify(localTodoLists));
-        
-        // Remove from UI
-        todoDiv.remove();
-    }
-};
 
-// Add event listener to the main todo container for delete buttons
-mainTodoElem.addEventListener('click', deleteTodo);
+        // Add event listener to the main todo container for delete buttons
+        mainTodoElem.addEventListener('click', deleteTodo);
 
         showTodoLists = () => {
             console.log(localTodoLists);
@@ -100,11 +87,40 @@ mainTodoElem.addEventListener('click', deleteTodo);
         };
         showTodoLists();
 
+        const removeTodoElem = (element) => {
+            const todoToRemove = element.target;
+            let todoListContent = todoToRemove.previousElementSibling.textContent;
+            let parentElem = todoToRemove.parentElement;
+
+            console.log(todoListContent);
+
+
+            localTodoLists = localTodoLists.filter((curTodo) => {
+                return curTodo !== todoListContent.toLowerCase();
+            });
+
+            addTOdoListLocalStorage(localTodoLists);
+            parentElem.remove();
+        };
+
+
+        mainTodoElem.addEventListener("click", (event) => {
+            event.preventDefault();
+            // console.log(event.target);
+            if (event.target.classList.contains("deleteBtn")) {
+                removeTodoElem(event);
+            }
+
+
+        });
 
         document.querySelector(".btn").addEventListener("click", (event) => {
             addTodoList(event);
 
+
+
         });
+
     </script>
 
 
