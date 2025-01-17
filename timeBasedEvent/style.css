@@ -1,80 +1,136 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  html {
-    color: #fff;
-    font-size: 62.5%;
-  }
-  
-  body {
-    height: 100vh;
-    background-color: #3b4156;
-    font-family: "Urbanist", sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  h1 {
-    font-size: 3.6rem;
-    margin-top: 4.8rem;
-  }
-  hr {
-    margin-bottom: 3.2rem;
-  }
-  p,
-  li,
-  button {
-    font-size: 1.7rem;
-    letter-spacing: 0.1rem;
-    font-family: "Urbanist", sans-serif;
-    line-height: 1.6;
-  }
-  button {
-    background-color: #f5ee62;
-    padding: 0.6rem 2.4rem;
-    border-radius: 10rem;
-    margin-right: 3.6rem;
-    cursor: pointer;
-    transition: all 0.3s linear;
-  
-    &:hover {
-      box-shadow: inset 0 0 0 0.2rem #f5ee62;
-      background-color: transparent;
-      color: #f5ee62;
-    }
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(45deg, #1a1a1a, #2c3e50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+/* Creating the clock-like display for the countdown */
+#countDown {
+  width: 200px;
+  height: 200px;
+  background: #2c3e50;
+  border-radius: 50%;
+  border: 4px solid #3498db;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+  box-shadow: 
+      inset 0 0 20px rgba(52, 152, 219, 0.3),
+      0 0 20px rgba(52, 152, 219, 0.2);
+  position: relative;
+}
+
+/* Adding clock markers for decoration */
+#countDown::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: 
+      repeating-conic-gradient(
+          from 0deg,
+          transparent 0deg 6deg,
+          rgba(52, 152, 219, 0.2) 6deg 12deg
+      );
+}
+
+/* Styling the buttons container */
+.buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Styling individual buttons */
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #3498db, #2980b9);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Specific button colors */
+.start_btn { background: linear-gradient(145deg, #27ae60, #219a52); }
+.stop_btn { background: linear-gradient(145deg, #e74c3c, #c0392b); }
+.reset_btn { background: linear-gradient(145deg, #f1c40f, #f39c12); }
+.time_btn { background: linear-gradient(145deg, #9b59b6, #8e44ad); }
+.clear_btn { background: linear-gradient(145deg, #95a5a6, #7f8c8d); }
+
+/* Styling the reset value display area */
+.resetValue {
+  margin-top: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+.resetValue p {
+  margin: 10px 0;
+  padding: 10px;
+  background: rgba(52, 152, 219, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* Making the design responsive */
+@media (max-width: 480px) {
   section {
-    width: 32rem;
-    height: 48rem;
-    background-color: #21232e;
-    text-align: center;
-    padding: 2.4rem;
-    border-radius: 1rem;
-    box-shadow: 0 1px 0px #343650, 0 2px 0px #343650, 0 3px 0px #343650,
-      0 4px 0px #343650, 0 5px 0px #343650, 0 6px 0px #343650, 0 7px 0px #343650,
-      0 8px 0px #343650, 0 9px 0px #343650, 0 10px 0px #343650;
+      padding: 20px;
   }
-  p {
-    color: #fb6087;
-    font-size: 9.8rem;
+
+  #countDown {
+      width: 150px;
+      height: 150px;
+      font-size: 2.5rem;
   }
+
   .buttons {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0 2.4rem;
+      gap: 5px;
   }
+
   button {
-    background-color: #fff;
-    margin: 0;
-    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+      padding: 8px 16px;
+      font-size: 0.9rem;
   }
-  .resetValue p {
-    font-size: 1.8rem;
-    margin-top: 0.6rem;
-  }
+}

@@ -26,6 +26,7 @@
 
       // Function to start the timer
       const startTimer = () => {
+        startCount= 1;
         intervalId = setInterval(() => {
           countDownElement.innerText = startCount++;
         }, 1000);
