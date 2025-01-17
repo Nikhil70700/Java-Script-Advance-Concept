@@ -1,114 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
-      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <title>Digital clock</title>
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Analog Clock</title>
     <style>
-      .container {
-        width: 90%;
-        max-width: 1400px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        justify-content: center;
-      }
+        /* Setting up our foundational styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-      .clockHolder {
-        width: 72rem;
-        background-color: #1b252a;
-        padding: 30px 50px;
-        border-radius: 15px;
-        border: 3px solid #f5ee62;
-        box-shadow: rgba(222, 238, 42, 0.1) 0px 4px 6px;
-        position: relative;
-      }
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #2a2b2c;  /* Matching your original dark background */
+        }
 
-      .clockHolder::after {
-        content: " ";
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        width: 70%;
-        height: 15px;
-        background-color: #f5ee62;
-        transform: translate(-50%, 0);
-        border-radius: 3px 3px 8px 8px;
-      }
+        /* Creating the main container that matches your existing clockHolder style */
+        .container {
+            background: #becb0e61;
+            padding: 10px;
+            border-radius:20%;
+            border: 2px solid gray;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
 
-      .clockHolder::before {
-        content: "";
-        position: absolute;
-        width: 110%;
-        height: 10px;
-        background-color: #f5ea4b77;
-        bottom: -25px;
-        left: -5%;
-        border-radius: 100%;
-        filter: blur(5px);
-      }
+        /* Styling the clock face with your yellow accent color */
+        .clock {
+            width: 230px;
+            height: 250px;
+            border-radius: 25%;
+            background: radial-gradient(circle, #fff, #fff, #fff, #e6b71b87);
+            border: 5px solid #727272;
+            box-shadow: 
+                inset 0 0 100px rgba(239, 239, 236, 0.966),
+                0 0 15px rgba(238, 238, 234, 0.963);
+            position: relative;
+        }
 
-      .timeHolder {
-        display: flex;
-        gap: 3.2rem;
-        align-items: center;
-      }
+        /* The center point where hands meet */
+        .clock::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #de1212d6;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-40%, -40%);
+            z-index: 100;
+            border: 1px solid rgba(255, 217, 0, 0.393);
 
-      .timeOptions {
-        display: flex;
-        flex-direction: column;
-        justify-items: start;
-        color: aliceblue;
-        gap: 1.2rem;
-      }
+        }
 
-      .mainDiv {
-        width: 100%;
-        text-align: center;
-      }
-      #clock {
-        font-size: 9.8rem;
-      }
+        /* Creating hour markers */
+        .clock .marker {
+            --rotation:0;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            padding: 8px;
+            text-align: center;
+            transform: rotate(var(--rotation));
+        }
+
+        .clock .marker::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background: #e18787;
+            border: 0.5px solid goldenrod;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Styling clock hands */
+        .hand {
+            --rotation: 0;
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom;
+            transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+            z-index: 10;
+            border-radius: 25px;
+        }
+
+        .hour {
+            width: 4px;
+            height: 20%;
+            background: #4d4c4b;
+        }
+
+        .minute {
+            width: 3px;
+            height: 25%;
+            background: #4d4c4b;
+            opacity: 0.8;
+        }
+
+        .second {
+            width: 1px;
+            height: 30%;
+            background: #a50810;
+            opacity: 0.6;
+        }
+
+        #clock-logo,img{
+            height: 50px;
+            width: 60px;            
+            position: absolute;
+            top: 30px;
+            left: 40px;
+        }
+
+        /* Adding the decorative bottom element from your original design */
+        .container::after {
+            content: '';
+            position: absolute;
+            bottom: -32px;
+            left: 50%;
+            width: 50%;
+            height: 30px;
+            background-color: #203172;
+            transform: translateX(-50%);
+            border-radius: 3px 3px 8px 8px;
+        }
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            width: 50%;
+            height: 40px;
+            background-color: #203172;
+            transform: translateX(-50%);
+            border-radius: 8px 8px 3px 3px;
+        }
+
+        .setter{
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 18px;
+            background: #8d8d8d;
+            border-radius: 10%;
+            top: 50%;
+            left: 109%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+        }
+        
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div class="container">
-      <div class="clockHolder">
-        <div class="timeHolder">
-          <div class="timeOptions">
-            <i class="fas fa-clock" data-title="Time"></i>
-            <i class="fas fa-stopwatch" data-title="StopWatch"></i>
-            <i class="far fa-clock" data-title="CountDown"></i>
-          </div>
-          <div class="mainDiv">
-            <p id="clock"></p>
-          </div>
+        <div class="clock">
+            <p id="clock-logo"><img src="logo.png" alt=""></p>
+            <div class="hand hour" data-hour-hand></div>
+            <div class="hand minute" data-minute-hand></div>
+            <div class="hand second" data-second-hand></div>
+            <div class="setter"></div>
+            <!-- We'll create 12 markers for hours -->
+            <div class="marker" style="color: #a50810; font-weight: 700;">12</div>
+            <div class="marker">1</div>
+            <div class="marker">2</div>
+            <div class="marker" style="color: #a50810;">3</div>
+            <div class="marker">4</div>
+            <div class="marker">5</div>
+            <div class="marker" style="color: #a50810;">6</div>
+            <div class="marker">7</div>
+            <div class="marker">8</div>
+            <div class="marker" style="color: #a50810;">9</div>
+            <div class="marker">10</div>
+            <div class="marker">11</div>
         </div>
-      </div>
     </div>
 
     <script>
-      const currentTime = () => {
-        let curTime = new Date().toLocaleTimeString();
-        document.getElementById("clock").innerText = curTime;
-      };
-      currentTime();
+        // First, let's position our hour markers
+        const markers = document.querySelectorAll('.marker')
+        markers.forEach((marker, index) => {
+            marker.style.setProperty('--rotation', `${index * 30}deg`)
+        })
 
-      const intervalId = setInterval(() => {
-        currentTime();
-      }, 1000);
+        // Select our clock hands
+        const hourHand = document.querySelector('[data-hour-hand]')
+        const minuteHand = document.querySelector('[data-minute-hand]')
+        const secondHand = document.querySelector('[data-second-hand]')
 
-      setTimeout(() => clearInterval(intervalId), 5000);
+        function setClock() {
+            const currentDate = new Date()
+            
+            const secondsRatio = currentDate.getSeconds() / 60
+            const minutesRatio = (secondsRatio + currentDate.getMinutes()) / 60
+            const hoursRatio = (minutesRatio + currentDate.getHours()) / 12
+
+            setRotation(secondHand, secondsRatio * 360)
+            setRotation(minuteHand, minutesRatio * 360)
+            setRotation(hourHand, hoursRatio * 360)
+        }
+
+        function setRotation(element, rotationRatio) {
+            element.style.setProperty('--rotation', rotationRatio)
+        }
+
+        setInterval(setClock, 1000)
+        setClock()
     </script>
-  </body>
+</body>
 </html>
