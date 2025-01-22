@@ -14,8 +14,8 @@
 
 //? Lexical scoping in JavaScript is like a set of rules that determines where a variable can be used in your code. It follows the physical structure of your code, so if a variable is declared inside a function or block, it can usually be used only within that function or block.
 
-//  var a = 5;
-//  var b = 10;
+ var a = 5;
+ var b = 10;
 //  what will be the value of a?
 
 //* -------------------------
@@ -70,6 +70,7 @@ function myFunction() {
     // Block scope
     const blockVariable = "I'm a block variable";
   }
+  // console.log(blockVariable);// Error: blockVariable is not defined
 
   console.log(functionVariable);
 }
