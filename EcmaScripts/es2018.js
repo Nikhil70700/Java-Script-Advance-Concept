@@ -24,18 +24,22 @@
 //? Object and Rest Operator
 // const student = {
 //   age: 10,
-//   name: "vinod",
+//   name: "Nikhil",
 //   isStudent: true,
 // };
 
-// const { age, ...others } = student;
+// // const { age, ...others } = student;
+// const { name, ...others } = student;
+
 // console.log(others);
+// console.log(typeof others);
+
 
 //? Object and Spread operator
 // const obj1 = { a: 10, b: 20, c: 50 };
 // const obj2 = { c: 30, d: 40 };
 
-// const newObj = { ...obj2, ...obj1 };
+// const newObj = { ...obj2, ...obj1 };  //c will be override
 // console.log(newObj);
 
 //* ============================
