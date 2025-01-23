@@ -9,11 +9,11 @@
 
 //? let Keyword:  The let keyword is used to declare variables with block scope. Variables declared with let are mutable, meaning their values can be reassigned.
 
-// var myFavWorldBestName = "vinod Bahadur Thapa";
+// var myFavWorldBestName = "Nikhil Bahadur Thapa";
 // myFavWorldBestName = "thapa technical";
 // console.log(myFavWorldBestName);
 
-// let myFavWorldBestName = "vinod Bahadur Thapa";
+// let myFavWorldBestName = "Nikhil Bahadur Thapa";
 // myFavWorldBestName = "thapa technical";
 // console.log(myFavWorldBestName);
 
@@ -21,7 +21,7 @@
 
 // pi=3.142 * r * r
 
-// const myFavWorldBestName = "vinod Bahadur Thapa";
+// const myFavWorldBestName = "Nikhil Bahadur Thapa";
 // // myFavWorldBestName = "thapa technical";
 // console.log(myFavWorldBestName);
 
@@ -29,7 +29,7 @@
 // var name = "thapa";
 
 // if (true) {
-//   var name = "vinod";
+//   var name = "Nikhil";
 //   console.log(name);
 // }
 
@@ -40,7 +40,7 @@
 // let name = "thapa";
 
 // if (true) {
-//   name = "vinod";
+//   name = "Nikhil";
 //   console.log(name);
 // }
 
@@ -51,7 +51,7 @@
 // const name = "thapa";
 
 // if (true) {
-//   const name = "vinod";
+//   const name = "Nikhil";
 //   console.log(name);
 // }
 
@@ -60,7 +60,7 @@
 
 // var
 // if (true) {
-//   var name = "vinod";
+//   var name = "Nikhil";
 //   console.log(name);
 // }
 // name = "technical";
@@ -68,7 +68,7 @@
 
 // let
 // if (true) {
-//   let name = "vinod";
+//   let name = "Nikhil";
 //   console.log(name);
 // }
 // // name = "technical";
@@ -80,7 +80,7 @@
 
 //? In ECMAScript 6 (ES6), template strings, also known as template literals, provide a convenient and flexible way to create strings in JavaScript. Template strings are enclosed in backticks (``) rather than single or double quotes.
 
-// let firstName = "vinod";
+// let firstName = "Nikhil";
 // let lastName = "thapa";
 
 // // Using template string for string interpolation
@@ -180,7 +180,7 @@
 //* =========================================
 //*  Object Properties - Modern JavaScript
 //* =========================================
-// const name = "vinod";
+// const name = "Nikhil";
 // const age = 30;
 
 //? traditional way
@@ -224,7 +224,7 @@ let b = 30;
 // console.log(a, b);
 
 //* Destructuring Objects:
-const user = { name: "Vinod", age: 30 };
+const user = { name: "Nikhil", age: 30 };
 // we will see the real life use of it in our main project of weather app
 
 //? Extracting properties:
@@ -246,6 +246,7 @@ const user = { name: "Vinod", age: 30 };
 // let newFruits = [...fruits];
 // console.log(newFruits);
 
+
 //? 2: Concatenating arrays / Combining arrays
 // const numbers1 = [1, 2, 3, 4];
 // const numbers2 = [4, 5, 6];
@@ -255,7 +256,7 @@ const user = { name: "Vinod", age: 30 };
 //? 3: Adding Elements to existing array
 // let fruits = ["Apple", "Orange", "mango", "banana"];
 // // fruits.push("guava", "grapes");
-// fruits.push(...["guava", "grapes"]);
+// fruits.push(...["apple","banana"]);
 // console.log(fruits);
 
 //! One more useCases
@@ -266,24 +267,33 @@ const user = { name: "Vinod", age: 30 };
 // console.log(country.split(""));
 
 //? New way of doing it
-// const country = "INDIA";
-// console.log([...country]);
+// const name = "Nikhil Pandey";
+// console.log([...name]);
 
 //* ==========================================
 //*  Rest parameters  - Modern JavaScript
 //* =========================================
 //? The rest parameter syntax allows a function to accept an indefinite number of arguments as an array, providing a more flexible way to work with functions that can accept varying numbers of arguments.
 
+
+//? Key points about the rest parameter:
+//? It collects all remaining arguments into an array
+//? Can be used in function definitions
+//? Allows flexible number of arguments
+//? Always comes last in the parameter list
+
 //? traditional way of doing it
 // const sum = (a, b, c, d) => {
 //   return a + b + c + d;
 // };
+// console.log(sum(1,2,3,4));
+
 
 //? with rest parameters
 const sum = (a, b, ...numbers) => {
-  //   console.log(typeof numbers);
+    // console.log(typeof numbers);
   return numbers.reduce((accum, curVal) => (accum = accum + curVal), 0);
-};
+}; 
 
 console.log(sum(1, 2, 3, 4));
 
