@@ -15,15 +15,15 @@
 //? flat() is a new array instance method that can create a one-dimensional array from a multidimensional array. (nested arrays into a single, flat array.)
 
 // const nestedArray = [1, 2, [3, 4], 5];
-const nestedArray1 = [1, [2, [3, [4]]], 5];
-
-// const flattenedArray = nestedArray.flat();
+// const nestedArray1 = [1, [2, [3, [4]]], 5];
+// console.log(typeof nestedArray); // object
+// const flattenedArray = nestedArray1.flat();
 // const flattenedArray = nestedArray1.flat(3);
 // console.log(flattenedArray);
 
 //? flatMap() is a new Array instance method that combines flat() with map(). It’s useful when calling a function that returns an array in the map() callback, but you want your resulted array to be flat:
 
-// const arr = ["My name", "is vinod", "thapa"];
+// const arr = ["My name", "is Nikhil", "Pandey"];
 // const newArr = arr.flatMap((curVal) => curVal.split(" "));
 // console.log(newArr);
 
@@ -34,9 +34,9 @@ const nestedArray1 = [1, [2, [3, [4]]], 5];
 //? It returns an array containing all the object own properties, as an array of [key, value] pairs:
 
 //? ES2019 introduces a new Object.fromEntries() method, which can create a new object from such array of properties:
-// const person = { name: "vinod", age: 30 };
+// const person = { name: "Nikhil", age: 30 };
 // const entries = Object.entries(person);
-// // console.log(entries);
+// console.log(entries);
 
 // const newPerson = Object.fromEntries(entries);
 // console.log(newPerson);
