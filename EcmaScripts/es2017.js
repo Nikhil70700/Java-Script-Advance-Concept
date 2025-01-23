@@ -18,16 +18,24 @@
 //todo  Use Case: Makes formatting text easier and more predictable, especially for tables, alignments, and UI elements. No more messy, uneven lines disrupting your visual spells!
 
 //? Using padStart() to pad from the beginning:
-// const companyName = "Kodyfier";
+// const companyName = "ABC";
+// console.log(companyName.length);
 // const paddedName = companyName.padStart(5);
-// const paddedName = companyName.padStart(15);
-// console.log(paddedName);
-// console.log(paddedName.length);
+// // const paddedName = companyName.padStart(15);
+// console.log("Here is the space added"+" "+ paddedName.padStart(25).length);
+// // console.log(paddedName.length);
 
 //? Using padEnd() to pad from the end:
-// const paddedName = companyName.padEnd(15);
-// const paddedName = companyName.padEnd(15, "$");
+
+
+// const Name="NikhilPandey";
+
+// // const paddedName=Name.padEnd(20) 
+// // const paddedName = companyName.padEnd(15);
+// const paddedName = Name.padEnd(25, "$");
+
 // console.log(paddedName);
+
 
 //todo Key points:
 //? Both padStart() and padEnd() create a new padded string without modifying the original one.
@@ -48,8 +56,8 @@ function greet(name, age, boolean) {
     console.log(`Hello ${name}, you are ${age} years old.`);
   }
   
-  // // Function call
-  greet("John", 30, true);
+//   // // Function call
+//   greet("John", 30, true);
   
   // // Array literal
   const colors = ["red", "green", "blue"];

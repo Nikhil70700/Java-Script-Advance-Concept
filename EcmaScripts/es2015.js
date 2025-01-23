@@ -290,10 +290,17 @@ const user = { name: "Nikhil", age: 30 };
 
 
 //? with rest parameters
-const sum = (a, b, ...numbers) => {
-    // console.log(typeof numbers);
-  return numbers.reduce((accum, curVal) => (accum = accum + curVal), 0);
+const sum = (a, ...numbers) => {
+  // console.log(typeof numbers);
+return numbers.reduce((accum, curVal)=>{
+  return accum * curVal;
+},1) ;
+  
+  
+
+
 }; 
+
 
 console.log(sum(1, 2, 3, 4));
 
