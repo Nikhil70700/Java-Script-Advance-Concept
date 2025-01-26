@@ -15,7 +15,8 @@
 
 // const array = [1, 2, 4, 5, 6, 7];
 // // console.log(array[array.length - 1]);
-// console.log(array.at(-1));
+// console.log(array.at(5));
+// console.log(array.at());
 
 //todo Note Datatypes supporting this function. 👇
 // String
@@ -30,13 +31,13 @@
 //? Object.hasOwn is the intended alternative for the Object.prototype.hasOwnProperty method. Although Object.prototype.hasOwnProperty has been in JavaScript specification for quite a time, it has some drawbacks.
 
 const book = {
-    name: "World Best JS Course",
-    author: "Thapa Technical",
+    name: "I am a Software Engineer",
+    author: "Nikhil Pandey",
   };
   
   // // Using Object.prototype.hasOwnProperty() method
   // console.log(book.hasOwnProperty("name")); //Output: true
-  // console.log(book.hasOwnProperty("price")); //Output: false
+  console.log(book.hasOwnProperty("price")); //Output: false
   
   // // Using Object.hasOwn method
   // console.log(Object.hasOwn(book, "name"));
