@@ -37,7 +37,7 @@ const book = {
   
   // // Using Object.prototype.hasOwnProperty() method
   // console.log(book.hasOwnProperty("name")); //Output: true
-  console.log(book.hasOwnProperty("price")); //Output: false
+  // console.log(book.hasOwnProperty("price")); //Output: false
   
   // // Using Object.hasOwn method
   // console.log(Object.hasOwn(book, "name"));
