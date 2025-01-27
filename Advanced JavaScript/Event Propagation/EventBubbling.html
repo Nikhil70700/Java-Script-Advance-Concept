@@ -1,0 +1,73 @@
+ <!--! Bubbling Phase: -->
+<!-- The event starts from the target element and bubbles up to the root of the DOM. -->
+<!-- Handlers registered for the bubbling phase are executed. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Propagation Example</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <div id="outer">
+        Outer
+        <div id="middle">
+          Middle
+          <div id="inner">Inner</div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <script>
+      const callOuter = (event) => {
+        console.table([
+          {
+            Description: "I am the outer one",
+            Target: event.target,
+            CurrentTarget: event.currentTarget,
+          },
+        ]);
+      };
+
+
+
+
+      const callMiddle = () => {
+        console.table([
+          {
+            Description: "I am the Middle one",
+            Target: event.target,
+            CurrentTarget: event.currentTarget,
+          },
+        ]);
+      };
+
+
+      const callInner = (event) => {
+        console.table([
+          {
+            Description: "I am the Inner one",
+            Target: event.target,
+            CurrentTarget: event.currentTarget,
+          },
+        ]);
+
+        // event.stopPropagation(); // For More See Notes
+      };
+
+      //   By default is the bubbling phase
+      document.getElementById("outer").addEventListener("click", callOuter);
+      document.getElementById("middle").addEventListener("click", callMiddle);
+      document.getElementById("inner").addEventListener("click", callInner);
+
+  
+    
+     
+    </script>
+  </body>
+</html>

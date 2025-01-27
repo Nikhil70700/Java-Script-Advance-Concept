@@ -10,7 +10,7 @@
     --easing: cubic-bezier(1, 0, 1, 1);
   }
   
-  .togglesw {
+  .toggle {
     display: none;
   }
   
