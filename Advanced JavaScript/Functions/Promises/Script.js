@@ -140,18 +140,30 @@ const promise1 = new Promise((resolve, reject) =>
 //   );
   
   const promise3 = new Promise((resolve) =>
-    setTimeout(() => resolve("Third"), 1000)
+    setTimeout(() => resolve("Third"),8000)
   );
+
+
+  //! Key Points: (Promise.all)
+
+// Promise.all takes an array of promises
+// Runs all promises at the same time (in parallel)
+// Waits for ALL promises to complete
+// If ANY promise fails, the whole thing fails
+// Returns array of results in same order as input
+
+//?When to use Promise.all:
+
+// When you have multiple independent tasks
+// When you want to speed up operations
+// When you need all operations to succeed
+
+//?When NOT to use:
+
+// When tasks depend on each other
+// When some tasks can fail without affecting others (use Promise.allSettled instead)
   
-  Promise.all([promise1, promise3, promise2])
-    .then((values) => {
-      console.log(values);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  
-  // Promise.allSettled([promise1, promise2, promise3])
+  // Promise.all([promise1, promise3, promise2])
   //   .then((values) => {
   //     console.log(values);
   //   })
@@ -159,10 +171,69 @@ const promise1 = new Promise((resolve, reject) =>
   //     console.error(error);
   //   });
   
-//   Promise.race([promise1, promise2, promise3])
-//     .then((values) => {
-//       console.log(values);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//     });
+
+
+
+
+    //!Promise.allSettled
+
+    // Never fails
+    // Returns array of objects with status and value/reason
+    // Use when you want to handle success/failure individually
+
+   //? When to use Promise.allSettled:
+
+// When some operations can fail without affecting others
+// When you need to know which operations succeeded/failed
+// When you want to process all results regardless of status
+// Loading multiple pieces of data where some might be unavailable
+
+//!Example Use Cases:
+
+// Loading data from multiple APIs
+// Sending notifications to multiple users
+// Batch processing operations
+// Data validation across multiple sources
+
+
+
+  // Promise.allSettled([promise1, promise2, promise3])
+  //   .then((values) => {
+  //     console.log(values);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+
+
+
+
+  //! Promise .race-----
+ //? Returns First Settled Promise:.
+
+// Returns the result of the first promise that settles (either resolves or rejects)
+// Other promises continue running but their results are ignored
+
+
+//***  Key Differences from other Promise methods:
+
+// Promise.all() - Waits for all promises to complete
+// Promise.allSettled() - Waits for all promises to settle
+// Promise.race() - Returns as soon as any promise settles
+// Promise.any() - Returns as soon as any promise fulfills (ignores rejections unless all reject)
+
+
+////Remember:
+
+//?  Promise.race() is ideal for implementing timeouts
+//  It's useful when you want the fastest result from multiple sources
+//  Once a winner is determined, other promises' results are ignored (but they still complete)
+// The first rejection will also win the race
+  
+  Promise.race([promise1, promise2, promise3])
+    .then((values) => {
+      console.log(values);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
